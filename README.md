@@ -11,6 +11,7 @@ código mais elegante.
 O projeto foi feito sem controle de versão no começo, pois estava testando várias libs e acabei
 terminando nesse meio tempo.
 
+Além de clickar no botão vc também pode apertar Enter para consultar o valor.
 
 ### Iniciar o projeto
 Digitar o comando yarn no terminal para download do node_modules e depois usar o comnado yarn start
