@@ -1,22 +1,30 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap');
+
+/* Reset */
+
+* {
+  margin:0;
+  border: 0;
+  outline: 0;
+  font-weight: 300;
+  box-sizing: border-box;
+  
 }
 
-.App-logo {
-  height: 40vmin;
+html, body, input, button, #root {
+  min-height: 100%;
+  font-family: "Quicksand", Arial, Helvetica, sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
+body{
+  
+  background: rgba(44,181,110,1);
+  background: -moz-linear-gradient(top, rgba(44,181,110,1) 0%, rgba(27,228,74,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(44,181,110,1)), color-stop(100%, rgba(27,228,74,1)));
+  background: -webkit-linear-gradient(top, rgba(44,181,110,1) 0%, rgba(27,228,74,1) 100%);
+  background: -o-linear-gradient(top, rgba(44,181,110,1) 0%, rgba(27,228,74,1) 100%);
+  background: -ms-linear-gradient(top, rgba(44,181,110,1) 0%, rgba(27,228,74,1) 100%);
+  background: linear-gradient(to bottom, rgba(44,181,110,1) 0%, rgba(27,228,74,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2cb56e', endColorstr='#1be44a', GradientType=0 );
+  -webkit-font-smoothing: antialiased !important
 }
