@@ -13,7 +13,7 @@ terminando nesse meio tempo.
 
 
 ### Iniciar o projeto
-Usar o yarn start
+Rodar o yarn e depois usar o yarn start
 
 ### Deploy do projeto
 Foi feito o deploy do projeto no Netlify:
