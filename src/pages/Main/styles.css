@@ -1,4 +1,5 @@
-#conversor {
+/* Estilo da Box Main */
+#main {
   width: 100%;
   background: rgb(245, 245, 245);
   padding: 2rem;
@@ -7,15 +8,7 @@
   padding-bottom: 3rem;
 }
 
-.container {
-  margin: 10% auto;
-  max-width: 95%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
+/* Estilo do header e seus componentes */
 .cabecalho {
   width: 100%;  
   flex-direction: column;
@@ -31,7 +24,8 @@
   font-weight: bold;
 }
 
-h2 {
+/* Estilo do h2 no topo da página */
+#main h2 {
   display: flex;
   flex-direction: column;
   text-align: initial;
@@ -42,10 +36,7 @@ h2 {
   
 }
 
-#btn:hover {
-  background-color: rgb(75, 199, 120);
-}
-
+/* Estilos dos inputs */
 #inputs {
   flex-direction: row;  
 }
@@ -84,9 +75,16 @@ input:focus {
   color: #14AA4B;
 }
 
-p {
-  padding: 0.3rem;
-  color: rgb(2, 78, 30);
+/* Estilo do button para mudar de cor quando houver um click */
+#btn:hover {
+  background-color: rgb(75, 199, 120);
+}
+
+/* Estilo dos prints dos resultados */
+
+.cardValor.MuiPaper-rounded {
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 li{
@@ -97,17 +95,17 @@ li{
   border-radius: 0.5rem;
 }
 
+p {
+  padding: 0.3rem;
+  color: rgb(2, 78, 30);
+}
+
 .valor {
   display: flex;
   flex-direction: column;
   text-align: right;
   color: #14AA4B;
   font-weight: bold;
-}
-
-.cardValor.MuiPaper-rounded {
-  border-radius: 0.5rem;
-  margin-top: 0.5rem;
 }
 
 /* Animação de entrada */

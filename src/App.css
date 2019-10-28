@@ -34,3 +34,12 @@ body{
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2cb56e', endColorstr='#1be44a', GradientType=0 );
   -webkit-font-smoothing: antialiased !important
 }
+
+.container {
+  margin: 10% auto;
+  max-width: 95%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

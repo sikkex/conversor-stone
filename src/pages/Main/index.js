@@ -86,7 +86,7 @@ export default class Main extends Component{
     
     return (
       
-      <Card id="conversor" className="animacao">
+      <Card id="main" className="animacao">
         <header className="cabecalho">
           <h1>Conversor Stone</h1>
           </header>
