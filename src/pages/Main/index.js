@@ -6,9 +6,10 @@ import Box from '../../components/Box'
 import Button from '../../components/Button'
 import './styles.css';
 
+// Api
 const url = 'https://economia.awesomeapi.com.br/JSONP/USD-BRL';
 
-export default class Conversor extends Component{
+export default class Main extends Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -29,6 +30,7 @@ export default class Conversor extends Component{
   }
 
   // A função cotacao() busca na api o valor bid e seta na cotacaoValor
+  // A função é chamada assim que a página é construida
 
   cotacao() {
     fetch(url)
@@ -46,7 +48,9 @@ export default class Conversor extends Component{
 
     let dolarComImposto = await((parseFloat((this.state.inputValor * (this.state.impostoEstadual/100)) + (this.state.inputValor)))).toFixed(2);
     
-    if(dolarComImposto !== "NaN") {      
+    // Condional para não deixar o valor NaN ser setado caso alguém digite um 
+    // valor não numérico
+    if(dolarComImposto !== "NaN") {
 
       let dolarSemImposto = (parseFloat(this.state.inputValor)).toFixed(2);
 
@@ -91,14 +95,16 @@ export default class Conversor extends Component{
         <Card className="inputs">
           <Box id="inputs">
 
-              {/* inputs que recebem o valor em dolár e o imposto
-                  em porcentagem com um botão que chama a função 
-                  converter () */}
+              {/* inputs que recebem respectivamente o valor em dolár e o 
+                imposto em porcentagem com um botão que chama a função 
+                converter () */}
 
               <input 
                 type="text"
                 onChange = {(event) =>
-                  this.setState({ inputValor: parseFloat((event.target.value).toString().replace(",", ".")) })}
+                  this.setState({ 
+                    inputValor: parseFloat((event.target.value)
+                      .toString().replace(",", ".")) })}
                 onKeyPress = {(event) => {
                   if(event.key === "Enter") this.converter();}}
                 id="montante"
@@ -111,7 +117,9 @@ export default class Conversor extends Component{
                 name="imposto" 
                 id="imposto"
                 onChange = {(event) =>
-                  this.setState({ impostoEstadual: parseFloat((event.target.value).toString().replace(",", ".")) })}
+                  this.setState({
+                     impostoEstadual: parseFloat((event.target.value)
+                      .toString().replace(",", ".")) })}
                 onKeyPress = {(event) => {
                   if(event.key === "Enter") this.converter()}}
                 placeholder="Imposto %"

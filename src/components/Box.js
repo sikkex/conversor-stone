@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import Box from '@material-ui/core/Box';
 import { withStyles } from '@material-ui/core/styles';
 
-
+// Edição do estilo da Box
 const styles = {
   root:{
     display: 'flex',
