@@ -13,7 +13,8 @@ terminando nesse meio tempo.
 
 
 ### Iniciar o projeto
-Rodar o yarn e depois usar o yarn start
+Digitar o comando yarn no terminal para download do node_modules e depois usar o comnado yarn start
+para iniciar o projeto.
 
 ### Deploy do projeto
 Foi feito o deploy do projeto no Netlify:
