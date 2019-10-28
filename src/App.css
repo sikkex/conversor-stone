@@ -16,6 +16,12 @@ html, body, input, button, #root {
   font-family: "Quicksand", Arial, Helvetica, sans-serif;
 }
 
+/* 
+  Gradiente feito com auxilio desse gerador online
+  https://www.cssmatic.com/gradient-generator#'\-moz\-linear\-gradient\%28top\%2C\%20rgba\%2844\%2C181\%2C110\%2C1\%29\%200\%25\%2C\%20rgba\%2827\%2C228\%2C74\%2C1\%29\%20100\%25\%29\%3B' 
+  
+  */
+
 body{
   
   background: rgba(44,181,110,1);
