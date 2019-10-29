@@ -75,6 +75,10 @@ input:focus {
   color: #14AA4B;
 }
 
+input:focus::-webkit-input-placeholder {
+  color: #14AA4B;
+}
+
 /* Estilo do button para mudar de cor quando houver um click */
 #btn:hover {
   background-color: rgb(75, 199, 120);
