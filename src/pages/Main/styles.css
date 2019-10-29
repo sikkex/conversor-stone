@@ -74,6 +74,9 @@ input:focus {
   border-color: #14AA4B;
   color: #14AA4B;
 }
+input:focus::-webkit-input-placeholder {
+  color: #14AA4B;
+}
 
 /* Estilo do button para mudar de cor quando houver um click */
 #btn:hover {
