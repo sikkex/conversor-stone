@@ -19,14 +19,14 @@ export default class Main extends Component {
     this.state = {
       inputValor: 0,
       impostoEstadual: 0,
-      cotacaoValor: (0.00).toFixed(2),
+      cotacaoValor: (0.0).toFixed(2),
       iofCartao: 6.38,
-      iofDinheiro: (1.10).toFixed(2),
-      dolarComImposto: (0.00).toFixed(2),
-      dolarSemImposto: (0.00).toFixed(2),
-      realComImpostoCartao: (0.00).toFixed(2),
-      realComImpostoDinheiro: (0.00).toFixed(2),
-      realSemImposto: (0.00).toFixed(2),
+      iofDinheiro: (1.1).toFixed(2),
+      dolarComImposto: (0.0).toFixed(2),
+      dolarSemImposto: (0.0).toFixed(2),
+      realComImpostoCartao: (0.0).toFixed(2),
+      realComImpostoDinheiro: (0.0).toFixed(2),
+      realSemImposto: (0.0).toFixed(2),
     };
     this.converter = this.converter.bind(this);
     this.cotacao = this.cotacao.bind(this);
@@ -47,33 +47,42 @@ export default class Main extends Component {
 
   // Função que que calcula o imposto e a cotação e converte setando no status
   async converter() {
-    const dolarComImposto = await ((parseFloat((this.state.inputValor
-      * (this.state.impostoEstadual / 100)) + (this.state.inputValor)))).toFixed(2);
+    const dolarComImposto = await parseFloat(
+      this.state.inputValor * (this.state.impostoEstadual / 100)
+        + this.state.inputValor,
+    ).toFixed(2);
 
     // Condional para não deixar o valor NaN ser setado caso alguém digite um
     // valor não numérico
     if (dolarComImposto !== 'NaN') {
-      const dolarSemImposto = (parseFloat(this.state.inputValor)).toFixed(2);
+      const dolarSemImposto = parseFloat(this.state.inputValor).toFixed(2);
 
       this.setState({ dolarSemImposto });
       this.setState({ dolarComImposto });
 
-      const realComImpostoDinheiro = ((this.state.dolarComImposto)
-        * (parseFloat(this.state.cotacaoValor) + (parseFloat(this.state.cotacaoValor)
-          * this.state.iofDinheiro / 100))).toFixed(2);
+      const realComImpostoDinheiro = (
+        this.state.dolarComImposto
+        * (parseFloat(this.state.cotacaoValor)
+          + (parseFloat(this.state.cotacaoValor) * this.state.iofDinheiro) / 100)
+      ).toFixed(2);
       this.setState({ realComImpostoDinheiro });
 
-      const realComImpostoCartao = await ((this.state.dolarComImposto
-        * (parseFloat(this.state.cotacaoValor)))
-        + ((this.state.dolarComImposto) * (parseFloat(this.state.cotacaoValor))
-        * (this.state.iofCartao / 100))).toFixed(2);
+      const realComImpostoCartao = await (
+        this.state.dolarComImposto * parseFloat(this.state.cotacaoValor)
+        + this.state.dolarComImposto
+          * parseFloat(this.state.cotacaoValor)
+          * (this.state.iofCartao / 100)
+      ).toFixed(2);
       this.setState({ realComImpostoCartao });
 
-      const realSemImposto = await ((this.state.dolarComImposto)
-        * (parseFloat(this.state.cotacaoValor))).toFixed(2);
+      const realSemImposto = await (
+        this.state.dolarComImposto * parseFloat(this.state.cotacaoValor)
+      ).toFixed(2);
       this.setState({ realSemImposto });
     } else {
-      alert('O valor digitado não foi um número válido. Por favor, tente novamente.');
+      alert(
+        'O valor digitado não foi um número válido. Por favor, tente novamente.',
+      );
     }
 
     this.setState({ inputValor: 0, impostoEstadual: 0 });
@@ -83,7 +92,6 @@ export default class Main extends Component {
 
   render() {
     return (
-
       <Card id="main" className="animacao">
         <header className="cabecalho">
           <h1>Conversor Stone</h1>
@@ -92,7 +100,6 @@ export default class Main extends Component {
         <form id="formButton">
           <Card className="inputs">
             <Box id="inputs">
-
               {/* inputs que recebem respectivamente o valor em dolár e o
                 imposto em porcentagem com um botão que chama a função
                 converter () */}
@@ -100,8 +107,9 @@ export default class Main extends Component {
               <input
                 type="text"
                 onChange={(event) => this.setState({
-                  inputValor: parseFloat((event.target.value)
-                    .toString().replace(',', '.')),
+                  inputValor: parseFloat(
+                    event.target.value.toString().replace(',', '.'),
+                  ),
                 })}
                 onKeyPress={(event) => {
                   if (event.key === 'Enter') this.converter();
@@ -116,8 +124,9 @@ export default class Main extends Component {
                 name="imposto"
                 id="imposto"
                 onChange={(event) => this.setState({
-                  impostoEstadual: parseFloat((event.target.value)
-                    .toString().replace(',', '.')),
+                  impostoEstadual: parseFloat(
+                    event.target.value.toString().replace(',', '.'),
+                  ),
                 })}
                 onKeyPress={(event) => {
                   if (event.key === 'Enter') this.converter();
@@ -126,31 +135,22 @@ export default class Main extends Component {
               />
             </Box>
           </Card>
-          <Button
-            id="btn"
-            onClick={this.converter}
-            className="btn"
-          >
-consultar
-
+          <Button id="btn" onClick={this.converter} className="btn">
+            consultar
           </Button>
-
-
         </form>
 
         {/* prints dos resultados na tela */}
 
         <Box id="resultados">
-
           <ul>
             <Card className="cardValor">
               <li>
                 <p>Cotação Dolar</p>
                 <p className="valor">
-R$:
+                  R$:
                   {' '}
-                  { (this.state.cotacaoValor).toString().replace('.', ',') }
-
+                  {this.state.cotacaoValor.toString().replace('.', ',')}
                 </p>
               </li>
             </Card>
@@ -158,9 +158,8 @@ R$:
               <li>
                 <p>IOF de transações internacionais</p>
                 <p className="valor">
-                  { (this.state.iofCartao).toString().replace('.', ',') }
+                  {this.state.iofCartao.toString().replace('.', ',')}
 %
-
                 </p>
               </li>
             </Card>
@@ -168,9 +167,8 @@ R$:
               <li>
                 <p>IOF da compra de dólar</p>
                 <p className="valor">
-                  { (this.state.iofDinheiro).toString().replace('.', ',') }
+                  {this.state.iofDinheiro.toString().replace('.', ',')}
 %
-
                 </p>
               </li>
             </Card>
@@ -178,10 +176,9 @@ R$:
               <li>
                 <p>Total em dólar sem imposto</p>
                 <p className="valor">
-$:
+                  $:
                   {' '}
-                  { (this.state.dolarSemImposto).toString().replace('.', ',') }
-
+                  {this.state.dolarSemImposto.toString().replace('.', ',')}
                 </p>
               </li>
             </Card>
@@ -189,10 +186,9 @@ $:
               <li>
                 <p>Total em dólar com imposto</p>
                 <p className="valor">
-$:
+                  $:
                   {' '}
-                  { (this.state.dolarComImposto).toString().replace('.', ',') }
-
+                  {this.state.dolarComImposto.toString().replace('.', ',')}
                 </p>
               </li>
             </Card>
@@ -200,10 +196,9 @@ $:
               <li>
                 <p>Total em real sem imposto</p>
                 <p className="valor">
-R$:
+                  R$:
                   {' '}
-                  { (this.state.realSemImposto).toString().replace('.', ',') }
-
+                  {this.state.realSemImposto.toString().replace('.', ',')}
                 </p>
               </li>
             </Card>
@@ -211,10 +206,9 @@ R$:
               <li>
                 <p>Total em real com imposto cartão</p>
                 <p className="valor">
-R$:
+                  R$:
                   {' '}
-                  { (this.state.realComImpostoCartao).toString().replace('.', ',') }
-
+                  {this.state.realComImpostoCartao.toString().replace('.', ',')}
                 </p>
               </li>
             </Card>
@@ -222,10 +216,11 @@ R$:
               <li>
                 <p>Total em real com imposto dinheiro</p>
                 <p className="valor">
-R$:
+                  R$:
                   {' '}
-                  { (this.state.realComImpostoDinheiro).toString().replace('.', ',') }
-
+                  {this.state.realComImpostoDinheiro
+                    .toString()
+                    .replace('.', ',')}
                 </p>
               </li>
             </Card>

@@ -3,7 +3,6 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Main from './pages/Main/index';
 
-
 // Rotas
 export default function Routes() {
   return (
