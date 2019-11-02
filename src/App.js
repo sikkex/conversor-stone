@@ -1,5 +1,5 @@
 import React from 'react';
-import 'reset-css'
+import 'reset-css';
 import './App.css';
 
 import Routes from './routes';
@@ -7,7 +7,7 @@ import Routes from './routes';
 function App() {
   return (
     <div className="container">
-        <Routes />
+      <Routes />
     </div>
   );
 }
