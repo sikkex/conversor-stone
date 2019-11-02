@@ -10,8 +10,8 @@ import './styles.css';
 const url = 'https://economia.awesomeapi.com.br/JSONP/USD-BRL';
 
 export default class Main extends Component{
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       inputValor: 0,
       impostoEstadual: 0,
