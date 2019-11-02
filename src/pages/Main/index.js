@@ -73,7 +73,7 @@ export default class Main extends Component {
         * (parseFloat(this.state.cotacaoValor))).toFixed(2);
       this.setState({ realSemImposto });
     } else {
-      alert('O valor digitado não foi um número válodo. Por favor, tente novamente.');
+      alert('O valor digitado não foi um número válido. Por favor, tente novamente.');
     }
 
     this.setState({ inputValor: 0, impostoEstadual: 0 });
